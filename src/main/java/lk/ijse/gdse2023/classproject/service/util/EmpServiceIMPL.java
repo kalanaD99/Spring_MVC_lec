@@ -34,6 +34,7 @@ public class EmpServiceIMPL implements EmpService {
     @Override
     public void deleteEmployee(String empId) {
        //Todo: to be created
+
     }
 
     @Override
@@ -41,8 +42,11 @@ public class EmpServiceIMPL implements EmpService {
         //Todo: to be created
         Optional<Employee> tmpEmp = employeeRepository.findById(empID);
         //Validation
-        if(tmpEmp.isPresent()) throw new RuntimeException("Emp");
-
+        if(tmpEmp.isPresent()) throw new RuntimeException("Employee not found");
+        tmpEmp.get().setEmpName(employeeDTO.getEmpName());
+        tmpEmp.get().setEmpDep(employeeDTO.getEmpDep());
+        tmpEmp.get().setEmpEmail(employeeDTO.getEmpEmail());
+        tmpEmp.get().setEmpProfile(employeeDTO.getEmpProfile());
     }
 
     @Override
