@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -38,6 +39,10 @@ public class EmpServiceIMPL implements EmpService {
     @Override
     public void updateEmployee(String empID, EmployeeDTO employeeDTO) {
         //Todo: to be created
+        Optional<Employee> tmpEmp = employeeRepository.findById(empID);
+        //Validation
+        if(tmpEmp.isPresent()) throw new RuntimeException("Emp");
+
     }
 
     @Override

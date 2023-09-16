@@ -42,8 +42,6 @@ public class EmployeeController {
    @PutMapping("{id}")
    void updateEmployee(
            @PathVariable String id
-           @RequestPart String empName
-
            ,@RequestBody EmployeeDTO employee){
       empService.updateEmployee(id,employee);
    }
